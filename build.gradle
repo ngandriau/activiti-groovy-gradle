@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+	def activitiVersion='5.15.1'
+	
+   
+	compile("org.activiti:activiti-engine:$activitiVersion"){
+		exclude group: 'commons-logging', module: 'commons-logging'
+	}
+	
+	compile group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.9'
+	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
+	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.7'
+	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.7'
+	compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.7'
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+	
+    testCompile group: 'junit', name: 'junit', version: '4.+'
+	testCompile group: 'com.h2database', name: 'h2', version: '1.3.175'
+}
