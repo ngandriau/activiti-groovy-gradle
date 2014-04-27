@@ -1,4 +1,4 @@
-package org.gradle.chapter4.api;
+package nico.books;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -12,7 +12,7 @@ import org.activiti.engine.ProcessEngineConfiguration;
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.runtime.ProcessInstance;
-import org.gradle.common.AbstractTest;
+import nico.books.common.AbstractTest;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class RuntimeServiceTest extends AbstractTest {
 		
 		RepositoryService repositoryService = processEngine.getRepositoryService();
 		repositoryService.createDeployment()
-			.addClasspathResource("chapter4/bookorder.bpmn20.xml")
+			.addClasspathResource("processes/bookorder.bpmn20.xml")
 			.deploy();
 		
 		runtimeService = processEngine.getRuntimeService();

@@ -1,4 +1,4 @@
-package org.gradle.common;
+package nico.books.common;
 
 import java.util.logging.Handler;
 import java.util.logging.LogManager;
@@ -6,12 +6,13 @@ import java.util.logging.Logger;
 
 //import org.activiti.engine.impl.util.LogUtil;
 import org.junit.BeforeClass;
-import org.slf4j.bridge.SLF4JBridgeHandler;
+//import org.slf4j.bridge.SLF4JBridgeHandler;
 
 public abstract class AbstractTest {
 	
 	@BeforeClass
 	public static void routeLoggingToSlf4j() {
+//        TODO: check if it is still necessary
 //		LogUtil.readJavaUtilLoggingConfigFromClasspath();
 		/*remove loggers of jdk1.4*/
 		Logger rootLogger = LogManager.getLogManager().getLogger("");  
@@ -22,7 +23,7 @@ public abstract class AbstractTest {
 		/*end*/
 		
 		//direct logs of jdk1.4 to slf4j
-		SLF4JBridgeHandler.install();
+//		SLF4JBridgeHandler.install();
 	}
 
 }
