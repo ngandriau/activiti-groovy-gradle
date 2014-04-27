@@ -1,7 +1,10 @@
-Seems like activity 5.15 and 5.15.1 supports groovy up to 1.8.9
+Simple activiti project using gradle and groovy
 
-If you change to groovy 2.0.0, 2.2.2 the RuntimeServiceTest test will fail
+Standalone activiti engine, not in a spring app context
 
-org.activiti.engine.ActivitiException: Can't find scripting engine for 'groovy'
+1 simple process definition based on the book order from activiti in action
 
-Source code from Activiti in Action https://code.google.com/p/activitiinaction/downloads/list
+Use groovy 2.2.2, logback and mysql
+
+1 Event listener configured
+
