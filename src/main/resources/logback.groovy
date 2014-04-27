@@ -7,7 +7,10 @@ appender("CONSOLE", ConsoleAppender) {
     println "USER_HOME is ${USER_HOME}"
 
     encoder(PatternLayoutEncoder) {
-        pattern = "%-5level %logger{36} - %msg%n %xException"
+//        Cannot make the mdc work :-)
+//        pattern = "%-5level %logger{15} - mdcProcDefId=%X{mdcProcessDefinitionID} - ndcExecutionId=%X{mdcExecutionId} - mdcProcessInstanceID=%X{mdcProcessInstanceID} mdcBusinessKey=%X{mdcBusinessKey}- %msg%n %xException"
+
+        pattern = "[%-5level] %logger{15} - %msg%n %xException"
 //        pattern = "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
     }
 }
@@ -23,8 +26,8 @@ logger ("org.hibernate", INFO)
 
 
 // Transaction management
-logger ("org.apache.ibatis.transaction.jdbc.JdbcTransaction", DEBUG)
-logger ("org.activiti.engine.impl.cfg.standalone.StandaloneMybatisTransactionContext", DEBUG)
+//logger ("org.apache.ibatis.transaction.jdbc.JdbcTransaction", DEBUG)
+//logger ("org.activiti.engine.impl.cfg.standalone.StandaloneMybatisTransactionContext", DEBUG)
 
 
 // TEST DEBUG

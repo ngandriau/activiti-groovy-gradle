@@ -68,6 +68,7 @@ class MainApp {
         List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup("sales").list()
 
         log.debug "  found [${tasks.size()}] waiting user tasks. Complete them all:"
+        assert tasks.size() == 1
 
         for (Task task : tasks) {
             log.debug "    complete Task(${task.name}) with id(${task.id})"
