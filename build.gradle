@@ -1,7 +1,9 @@
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'groovy'
 
 sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
 version = '1.0'
 
 repositories {
@@ -15,14 +17,19 @@ dependencies {
 	compile("org.activiti:activiti-engine:$activitiVersion"){
 		exclude group: 'commons-logging', module: 'commons-logging'
 	}
-	
-	compile group: 'org.codehaus.groovy', name: 'groovy', version: '1.8.9'
-	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
-	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.7'
-	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.7'
-	compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.7'
-	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    compile "org.codehaus.groovy:groovy-all:2.2.2"
+
+    compile 'ch.qos.logback:logback-classic:1.1.2'
+
+//	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
+//	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.7'
+//	compile group: 'org.slf4j', name: 'jcl-over-slf4j', version: '1.7.7'
+//	compile group: 'org.slf4j', name: 'jul-to-slf4j', version: '1.7.7'
+//	compile group: 'log4j', name: 'log4j', version: '1.2.17'
 	
     testCompile group: 'junit', name: 'junit', version: '4.+'
-	testCompile group: 'com.h2database', name: 'h2', version: '1.3.175'
+
+    runtime 'mysql:mysql-connector-java:5.1.30'
+	testRuntime 'com.h2database:h2:1.3.175'
 }
