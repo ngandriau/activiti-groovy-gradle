@@ -9,7 +9,7 @@ import org.activiti.engine.task.Task
  * Created by ngandriau on 4/27/14.
  */
 @Slf4j
-class MainApp {
+class MainStandAloneApp {
 
 
     ProcessEngine processEngine
@@ -18,7 +18,7 @@ class MainApp {
     public static void main(String[] args) {
         log.info "==== MainApp.starting"
 
-        MainApp app = new MainApp()
+        MainStandAloneApp app = new MainStandAloneApp()
 
         app.initProcessEngine()
 
