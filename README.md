@@ -1,10 +1,21 @@
 Simple activiti project using gradle and groovy
+===============================================
 
-Standalone activiti engine, not in a spring app context
+*   Activiti is initialized in a spring context (spring-activiti-context.xml), using the datasource and the transacion manager declared in the spring context.
+    * Transaction log done by `org.springframework.jdbc.datasource.DataSourceTransactionManager`
 
-1 simple process definition based on the book order from activiti in action
+*    simple process definition based on the book order from activiti in action `bookorder.bpmn20.xml`
 
-Use groovy 2.2.2, logback and mysql
+    *   the second `service task` has an expression which use a bean declared in the spring context: `PrinterBean`
 
-1 Event listener configured
+*   Use groovy 2.2.2, logback and mysql
+
+*   1 Event listener configured
+
+TODO
+====
+
+Integrate hibernate
+-------------------
+[forum which can help](http://forums.activiti.org/content/activiti-hibernate)
 

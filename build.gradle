@@ -18,15 +18,16 @@ dependencies {
     compile("org.activiti:activiti-engine:$activitiVersion") {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
-    compile("org.activiti:activiti-engine:$activitiVersion") {
+    compile "org.activiti:activiti-spring:$activitiVersion"
 
-    compile 'org.springframework:spring-context:$springVersion'
-    compile 'org.springframework:spring-tx:$springVersion'
-    compile 'org.springframework:spring-jdbc:$springVersion'
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
 
     compile "org.codehaus.groovy:groovy-all:2.2.2"
 
-    compile 'ch.qos.logback:logback-classic:1.1.2'
+    compile "ch.qos.logback:logback-classic:1.1.2"
 
 //	compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.7'
 //	compile group: 'org.slf4j', name: 'slf4j-log4j12', version: '1.7.7'

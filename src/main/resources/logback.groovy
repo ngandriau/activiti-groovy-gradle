@@ -26,10 +26,14 @@ logger ("org.hibernate", INFO)
 
 
 // Transaction management
+// when activiti is standalone
 //logger ("org.apache.ibatis.transaction.jdbc.JdbcTransaction", DEBUG)
 //logger ("org.activiti.engine.impl.cfg.standalone.StandaloneMybatisTransactionContext", DEBUG)
 
+// when activiti use spring transaction manager
+logger ("org.springframework.jdbc.datasource.DataSourceTransactionManager", DEBUG)
+
 
 // TEST DEBUG
-logger ("nico.books.MainApp", DEBUG)
-//logger ("nico.books.MyEventListener", DEBUG)
+logger ("nico.books", DEBUG)
+logger ("nico.books.MyEventListener", DEBUG)

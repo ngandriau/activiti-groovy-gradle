@@ -1,54 +1,29 @@
 package nico.books
 
 import groovy.util.logging.Slf4j
-import org.activiti.engine.*
+import org.activiti.engine.ProcessEngine
+import org.activiti.engine.RepositoryService
+import org.activiti.engine.RuntimeService
+import org.activiti.engine.TaskService
 import org.activiti.engine.runtime.ProcessInstance
 import org.activiti.engine.task.Task
 
-/**
- * Created by ngandriau on 4/27/14.
- */
 @Slf4j
-class MainStandAloneApp {
-
-
+abstract class AbstractApp {
     ProcessEngine processEngine
     RuntimeService runtimeService
 
-    public static void main(String[] args) {
-        log.info "==== MainApp.starting"
+    /**
+     * Objective is to initialize @processEngine and @runtimeService
+     */
+    abstract void initProcessEngine()
 
-        MainStandAloneApp app = new MainStandAloneApp()
-
-        app.initProcessEngine()
-
-        List<ProcessInstance> activeProcesses = app.queryActiveProcesses()
-        if (!activeProcesses)
-            app.executeNewBookOrderProcess()
-
-        app.executeEveryUserTask()
-
-        app.waitEndOfAnyProc()
-
-        log.info "==== MainApp.Over"
-
-        app.processEngine.close()
-
-    }
-
-    void initProcessEngine() {
-        log.info "initProcessEngine()"
-        processEngine = ProcessEngines.getDefaultProcessEngine()
-
+    void deployOrderProcess(){
         RepositoryService repositoryService = processEngine.getRepositoryService();
         repositoryService.createDeployment()
                 .addClasspathResource("processes/bookorder.bpmn20.xml")
                 .deploy()
-
-        runtimeService = processEngine.getRuntimeService()
-
     }
-
 
     ProcessInstance executeNewBookOrderProcess() {
         log.info "executeNewBookOrderProcess()"

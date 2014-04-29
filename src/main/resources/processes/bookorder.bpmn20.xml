@@ -20,9 +20,17 @@
 
 		<sequenceFlow id="sequenceflow2" name="Sending to management" sourceRef="scripttask1" targetRef="usertask1"/>
 
+        <serviceTask id="scripttask2" activiti:expression="${printer.sayHello('from scripttask2')}" />
+
+        <sequenceFlow id="sequenceflow3" name="flow" sourceRef="usertask1" targetRef="scripttask2"/>
+
+        <serviceTask id="scripttask3" activiti:expression="${printer.sayHello('from scripttask3')}" />
+
+        <sequenceFlow id="sequenceflow4" name="flow" sourceRef="scripttask2" targetRef="scripttask3"/>
+
 		<endEvent id="endevent1" name="End"/>
 
-		<sequenceFlow id="sequenceflow3" name="flow" sourceRef="usertask1" targetRef="endevent1"/>
+		<sequenceFlow id="finalflow" name="flow" sourceRef="scripttask3" targetRef="endevent1"/>
 
 	</process>
 </definitions>
