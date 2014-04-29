@@ -43,7 +43,6 @@ abstract class AbstractApp {
         List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup("sales").list()
 
         log.debug "  found [${tasks.size()}] waiting user tasks. Complete them all:"
-        assert tasks.size() == 1
 
         for (Task task : tasks) {
             log.debug "    complete Task(${task.name}) with id(${task.id})"
@@ -55,7 +54,7 @@ abstract class AbstractApp {
         log.info "waitEndOfAnyProc()"
         List<ProcessInstance> activeProcesses = queryActiveProcesses()
         while (activeProcesses) {
-            log.debug "  found at least 1 active proc, wait..."
+            log.debug "  found ${activeProcesses.size()} active proc, wait..."
             Thread.sleep(200)
             activeProcesses = queryActiveProcesses()
         }
