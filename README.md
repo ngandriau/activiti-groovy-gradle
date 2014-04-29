@@ -6,7 +6,7 @@ Simple activiti project using gradle and groovy
 
 *    simple process definition based on the book order from activiti in action `bookorder.bpmn20.xml`
     *   some `service tasks` are marked asynchronous.
-    *   **Process Does not execute to the end now** need to figure out why. :-(
+    *   to have them correctly executed, it is necessary to activate the `jobExecutor` inside activiti
 
     *   the second `service task` has an expression which use a bean declared in the spring context: `PrinterBean`
 
@@ -17,8 +17,6 @@ Simple activiti project using gradle and groovy
 TODO
 ====
 
-End completion of process with asynchronous tasks
--------------------------------------------------
 
 Integrate hibernate
 -------------------

@@ -36,4 +36,4 @@ logger ("org.springframework.jdbc.datasource.DataSourceTransactionManager", DEBU
 
 // TEST DEBUG
 logger ("nico.books", DEBUG)
-logger ("nico.books.MyEventListener", DEBUG)
+logger ("nico.books.MyEventListener", INFO)
